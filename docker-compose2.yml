@@ -1,0 +1,31 @@
+version: '3.8'
+name: contenedores-pokedex
+services:
+  mongo-db: 
+    image: mongo:5
+    container_name: mongo_database
+    restart: always
+    ports: 
+      - 27017:27017
+    environment:
+      MONGODB_DATABASE: nest-pokemon
+    volumes:
+      - ./mongo:/data/db
+  pokedex:
+    depends_on: 
+      - mongo-db
+    build: 
+      context: ./
+      dockerfile: Dockerfile
+    image: imagen-nest10-node21:1.1
+    container_name: pokedex
+    working_dir: /usr/src/app/
+    command: [ "yarn", "start:dev" ]
+    # command: bash -c "yarn install && yarn start:dev"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "9000:3000"
+    environment:
+      - MONGO_URL=mongodb://mongo-db:27017/nest-pokemon

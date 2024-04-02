@@ -1,0 +1,16 @@
+version: '3.8'
+name: contenedores-pokedex
+services:
+  pokedex:
+    build: 
+      context: ./
+      dockerfile: Dockerfile
+    image: imagen-nest10-node21:1.1
+    container_name: pokedex
+    working_dir: /usr/src/app/
+    command: [ "yarn", "start:dev" ]
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "9000:3000"
