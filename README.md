@@ -7,15 +7,13 @@
 1. Clonar el repositorio
 2. Ejecutar 
 ```
-yarn install
+docker compose -f docker-compose2.yml up --build
 ```
-3. Tener Nest CLI instalado
+La primera vez utilizar la bandera '--build'
+
+3. Para detener la ejecución
 ```
-npm i -b @nestjs/cli
-```
-4. Levantar la base de datos
-```
-docker compose up -d
+docker compose -f docker-compose2.yml down
 ```
 
 ## Stack usado
