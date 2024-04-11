@@ -12,7 +12,7 @@ RUN chmod -R 777 .
 
 RUN yarn install
  
-# CMD [ "yarn", "start:dev" ]
+CMD [ "yarn", "start" ]
 
 # Mantener el contenedor en ejecución
 # CMD ["tail", "-f", "/dev/null"]
