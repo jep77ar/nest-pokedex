@@ -26,6 +26,6 @@ services:
       - .:/usr/src/app
       - /usr/src/app/node_modules
     ports:
-      - "9000:3000"
+      - "9000:${PORT}"
     environment:
       - MONGO_URL=mongodb://mongo-db:27017/nest-pokemon
