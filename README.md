@@ -30,6 +30,17 @@ http://localhost:9000/api/v2/seed
 yarn start:dev
 ```
 
+# Ejecutar en producción
+1. Crear el archivo ```.env```
+2. Llenar las variables de entorno de producción
+3. Crear la nueva imagen
+```
+docker-compose -f docker-compose.prod.yaml --env-file .env.prod up --build
+```
+4. Luego de la primera vez, se puede levantar con el siguiente comando
+```
+docker-compose -f docker-compose.prod.yaml --env-file .env.prod up
+```
 
 
 ## Stack usado

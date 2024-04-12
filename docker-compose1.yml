@@ -4,7 +4,7 @@ services:
   pokedex:
     build: 
       context: ./
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-dev
     image: imagen-nest10-node21:1.1
     container_name: pokedex
     working_dir: /usr/src/app/
